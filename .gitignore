@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+### gitIgnoreTemplate template
+#gradle
+.gradle
+
+#idea
+.idea
+*.iml
+
+#compile
+target
+.gitignore
+
