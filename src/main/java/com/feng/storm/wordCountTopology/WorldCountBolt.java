@@ -36,9 +36,9 @@ public class WorldCountBolt extends BaseRichBolt {
 		String msg = tuple.getStringByField("count");
 		if("_deactivate".equals(tuple.getSourceStreamId()) && "shutDown".equals(msg)) {
 			cleanup();
+			return;
 		}
 		log.info("第" + count + "次统计单词出现的次数");
-		System.out.println("第" + count + "次统计单词出现的次数");
 		/**
 		 * 如果不包含该单词，说明在该map是第一次出现
 		 * 否则进行加1
@@ -59,7 +59,7 @@ public class WorldCountBolt extends BaseRichBolt {
 	public void cleanup() {
 		log.info("===========开始显示单词数量============");
 		for (Map.Entry<String, Integer> entry : counts.entrySet()) {
-			System.out.println("输入统计结果：" + entry.getKey() + ": " + entry.getValue());
+            log.info("输出统计结果：" + entry.getKey() + ": " + entry.getValue());
 		}
 		log.info("===========结束============");
 	}

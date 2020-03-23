@@ -49,7 +49,7 @@ public class StormMain {
 				cluster.submitTopology("word_count_topology", conf, builder.createTopology());
 
 				//暂停10s，关掉任务，否则会一直运行
-				Utils.sleep(10000);
+				Utils.sleep(180000);
 				cluster.killTopology("word_count_topology");
 				cluster.shutdown();
 			}
